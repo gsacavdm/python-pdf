@@ -1,0 +1,4 @@
+parsing_jsons/*
+pdfs/*
+
+!.gitkeep
