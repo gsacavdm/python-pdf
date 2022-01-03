@@ -1,8 +1,16 @@
-parser_path = 'parsing_jsons/paystub_new.json'
-pdf_path = 'pdfs/2021-12-31.pdf'
+#!python3
+
+import sys
+import argparse
 
 from pdfminer.high_level import *
 import json
+
+parser = argparse.ArgumentParser(description='Generate the parser json for the extract_pdf script.')
+parser.add_argument('--pdf', '-p', dest='pdf_path', help='path to the pdf', required=True)
+
+args = parser.parse_args()
+pdf_path = args.pdf_path
 
 raw_text = extract_text(pdf_path)
 raw_lines = raw_text.split('\n')
